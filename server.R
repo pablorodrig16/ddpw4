@@ -22,25 +22,27 @@ shinyServer(function(input, output) {
     test<-round(runif(n = 1000,min = 1,max = 10),2)
 
    
-    ## creates disease vector defined when test value is greater than
-    ## diseaseDef (5 + error term)
+    ## creates disease vector defined when test value is greater or equal than
+    ## 5 + error term
     disease<-reactive({
         set.seed(0)
         classification<-test>=runif(n = 1000,min = -1*input$err,max = input$err) +5
         classification
     })
     
-    
+    ## calculates statistics using epiR::epi.test() for input$threshold
     epiTest<-reactive({
         epi.tests(tableFUN(test = test,disease = disease(),threshold = input$threshold))
     })
     
+    ## creates output confusion matrix from epiTest()
     output$table2by2<-renderTable({
         t2by2<-epiTest()$tab
         t2by2[is.na(t2by2)]<-0
         t2by2
     })
     
+    ## creates output Performance from epiTest()
     output$Performance<-renderText({
         performance<-summary(epiTest())
         performance<-performance[c(3,4,9:12,8),]
@@ -60,7 +62,10 @@ shinyServer(function(input, output) {
         paste(row.names(performance),values,sep = ": ")
     })
     
+    ## creates plots
     output$my_plot<-renderPlotly({
+        
+        ## extract sp and se from epiTest()
         specificity<-epiTest()$rval$sp
         sensitivity<-epiTest()$rval$se
         ## dataframe1 is a dataframe with test value, disease condition, se (sensitivity)
