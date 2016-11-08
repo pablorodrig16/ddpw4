@@ -3,14 +3,14 @@
 library(shiny); library (epiR);library (plotly)
 
 shinyServer(function(input, output) {
-    set.seed(1000)
+    set.seed(5)
     
     ## function to make 2 by 2 table
     tableFUN<-function (test, disease, threshold){
         if(any(test<threshold)) {
-            result<-table(test<threshold,!disease)
+            result<-table(test>=threshold,disease)
         }else{
-            result<-table(test<threshold,!disease)
+            result<-table(test>=threshold,disease)
             result<-rbind(result,c(0,0))
             rownames(result)[2]<-"TRUE"
         }
@@ -25,7 +25,9 @@ shinyServer(function(input, output) {
     ## creates disease vector defined when test value is greater than
     ## diseaseDef (5 + error term)
     disease<-reactive({
-        test>runif(n = 1000,min = -1*input$err,max = input$err) +5
+        set.seed(0)
+        classification<-test>=runif(n = 1000,min = -1*input$err,max = input$err) +5
+        classification
     })
     
     
