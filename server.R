@@ -8,9 +8,9 @@ shinyServer(function(input, output) {
     ## function to make 2 by 2 table
     tableFUN<-function (test, disease, threshold){
         if(any(test<threshold)) {
-            result<-table(test>=threshold,disease)
+            result<-table(test<threshold,!disease)
         }else{
-            result<-table(test>=threshold,disease)
+            result<-table(test<threshold,!disease)
             result<-rbind(result,c(0,0))
             rownames(result)[2]<-"TRUE"
         }
@@ -48,7 +48,7 @@ shinyServer(function(input, output) {
                                  "Positive Predictive Value",
                                  "Negative Predictive Value",
                                  "Positive Likelihood Ratio",
-                                 "Negative LIkelihood Ratio",
+                                 "Negative Likelihood Ratio",
                                  "Youden index")
         performance<-round(performance,2)
         

@@ -6,7 +6,7 @@ date: `r date()`
 Please visit my project [Shiny App](https://porbm28.shinyapps.io/DDPW4/) 
 
 
-The project (I)
+The project (I): Introduction
 ========================================================
 
 * The project is a simulation of a diagnostic performance study of a numeric 'test' variable for a 'disease'.  
@@ -17,10 +17,8 @@ The project (I)
 * The [Shiny App](https://porbm28.shinyapps.io/DDPW4/) allows the user to modify the theorical diagnostic performance of 'test' and to choose different 'threshold' values of 'test' as diagnostic tool for 'disease' and see the results.  
 
 
-The project (II)
+The project (II): Simulation
 ========================================================
-
-Simulation: 
 
 1. 'test' is a vector created with random values of a uniform distribution (range: 1-10).  
 2. 'disease' is diagnosed if 'test' value is greater than 5 plus an error term assigned by the user with *Set test performance* slider.
@@ -34,14 +32,14 @@ err<-3
 test<-round(runif(n = 1000,min = 1,max = 10),2)
 set.seed(0)
 disease<-test>=runif(n = 1000,min = -1*err,max = err) +5
-table1<-table(test>=5,disease)
+table1<-table(test<5,!disease)
 epiTable<-epi.tests(table1)
 epiTable$tab
 ```
 </font>
 4. The script of the [Shiny App](https://porbm28.shinyapps.io/DDPW4/) can be found [here](https://github.com/pablorodrig16/ddpw4).
 
-The project (III)
+The project (III): Analysis
 ========================================================
 
 * `epiR::epi.tests()` function is used to calculate:  
@@ -55,7 +53,7 @@ The project (III)
         + Negative LIkelihood Ratio
         + Youden's index
 
-The Project interface
+The Project (IV): Interface
 ========================================================
 * Inputs:
     + *Set test performance* slider: theorical performance of 'test'
