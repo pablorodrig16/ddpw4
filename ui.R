@@ -38,7 +38,9 @@ ROC curve, Youden index versus values and likelihood ratio versus values. See ",
                    c("ROC curve"="roc",
                      "Youden index versus test values"="youden",
                      "Likelihood ratios versus test values"="lr")),
-      submitButton("Update calculations")
+      submitButton("Update calculations"),
+      hr(),
+      p("See the code in", a(href="https://github.com/pablorodrig16/ddpw4","GitHub."))
     ),
 
     # Show cases distribution, test performance and plots
