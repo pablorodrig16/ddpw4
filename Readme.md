@@ -15,9 +15,9 @@ It requires `epiR` and `plotly` R packages.
 The app has 2 outputs:  
 1. *Confusion matrix* and *performance calculations* for the threshold chosen by the user.  
 2. Three types of diagnostic plots:  
-    -   [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
-    -   [Youden](https://en.wikipedia.org/wiki/Youden%27s_J_statistic) index versus values  
-    -   [Likelihood ratios](https://en.wikipedia.org/wiki/Likelihood_ratios_in_diagnostic_testing) versus values  
+- [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)  
+- [Youden's index](https://en.wikipedia.org/wiki/Youden%27s_J_statistic) versus values  
+- [Likelihood ratios](https://en.wikipedia.org/wiki/Likelihood_ratios_in_diagnostic_testing) versus values  
 
 You can access the shiny app [here](https://porbm28.shinyapps.io/DDPW4/).
 
