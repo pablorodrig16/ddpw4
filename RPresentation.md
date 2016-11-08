@@ -2,7 +2,7 @@ DDP week 4 project
 Simulation of the performance of a diagnostic test
 ========================================================
 author: POR
-date: Tue Nov 08 01:49:25 2016
+date: Tue Nov 08 01:54:42 2016
 Please visit my project [Shiny App](https://porbm28.shinyapps.io/DDPW4/) 
 
 
@@ -24,7 +24,7 @@ Simulation:
 
 1. 'test' is a vector created with random values of a uniform distribution (range: 1-10).  
 2. 'disease' is diagnosed if 'test' value is greater than 5 plus an error term assigned by the user with *Set test performance* slider.
-3. The app classify cases and calculates performance parameters according to a 'test' value 'threshold' and makes different plots that illustrate the global performance of 'test' variable.  
+3. The app classifies cases and calculates performance parameters according to a 'test' value 'threshold' and makes different plots that illustrate the global performance of 'test' variable.  
 <font size=5>
 Example *confusion matrix* with 'threshold'>=5 and error term=3:  
 
