@@ -1,11 +1,5 @@
----
-title: "Developing Data Products Coursera Course W4 project assignment"
-author: "POR"
-date: "`r date()`"
-output: 
-  html_document: 
-    keep_md: yes
----
+# Developing Data Products Coursera Course W4 project assignment
+
 This repository holds the scripts for the DDPW4 assignment. The project requires a shiny app deployed in [Rstudio shiny server](http://www.shinyapps.io/), a R presentation in [Rpubs](http://www.rpubs.com), and the app script in [GitHub](https://github.com/).
 
 ## The Project:
